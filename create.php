@@ -1,28 +1,37 @@
-<!DOCTYPE html> 
+ <!-- Requiere crear una clase para el control de sesion !-->
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>TP PROG1</title>
-    </head>
-    <body>
-      <div>
-      <h1>Peliculas favoritas</h1>
-      </div>    
-      <div>
-        <h3>Crear nuevo usuario</h3>
-        <!-- Aca iria un mensaje de error si algo sale mal !-->
-        <form>
-            <input name="usuario" placeholder="Usuario">
-            <br>
-            <input name="clave" type="password" placeholder="Contraseña">
-            <br>
-            <input name="nombre" placeholder="Nombre">
-            <br>
-            <input name="apellido" placeholder="Apellido">
-            <br>
-            <input type="submit" value="Registrarse">
-            <br>
-        </form>        
-      </div> 
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Crear Usuario</title>
+  <link href="site.css?v0.1" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="content_login">
+    <div class="content_title_login">
+      Peliculas favoritas
+    </div>
+    <div class="content_login_form">
+      <div class="title_form_log">
+        Crear Usuario
+      </div>
+      <!-- Aca iria un mensaje de error si algo sale mal !-->
+      <form>
+
+        <div class="content_input_login"><input name="usuario" placeholder="Usuario"></div>
+
+        <div class="content_input_login"><input name="clave" type="password" placeholder="Contraseña"></div>
+
+        <div class="content_input_login"><input name="nombre" placeholder="Nombre"></div>
+
+        <div class="content_input_login"><input name="apellido" placeholder="Apellido"></div>
+
+        <div class="content_btns_login"><input type="submit" value="Registrarse"></div>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

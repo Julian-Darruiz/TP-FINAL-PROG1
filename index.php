@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>TP PROG1</title>
-    </head>
-    <body>
-      <div>
-      <h1>Peliculas favoritas</h1>
-      </div>    
-      <div>
-        <h3>Ingreso</h3>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pagina de Inicio</title>
+  <link href="site.css?v0.1" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="content_login">
+    <div class="content_title_login">
+      Peliculas favoritas
+    </div>
+    <div class="content_login_form">
+      <div class="title_form_log">
+        Ingrese sus credenciales para guardar sus peliculas favoritas
+      </div>
+      <form action="login.php" method="post">
+        <!-- Aca falta crear el archivo login.php !-->
+        <div class="content_input_login">
+          <input type="text" name="usuario" placeholder="Usuario">
+        </div>
+        <div class="content_input_login">
+          <input type="password" name="contraseña" placeholder="Contraseña">
+        </div>
+
         <!-- Aca iria un mensaje de error si algo sale mal !-->
-        <form>
-            <input name="usuario" placeholder="Usuario">
-            <br>
-            <input name="contraseña" type="text" placeholder="Contraseña">
-            <br>
-            <input type="submit" value="Ingresar">
-            <br>
-        </form>
-        <br>
-        <p>Crear nuevo usuario</p>
-      </div> 
-    </body>
+
+        <div class="content_btns_login">
+          <a href="create.php" class="btn_login_registrarse">
+            Crear nuevo usuario
+          </a>
+          <input class="btn_login_iniciar" type="submit" value="Ingresar" />
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

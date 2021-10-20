@@ -1,0 +1,173 @@
+*{
+    padding: 0px;
+    margin:0px;
+    font-size: 16px;
+    font-weight:400;
+    color:#000;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  .content_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .content_title_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #cacaca;
+    font-size: 28px;
+  }
+  
+  .content_login_form{
+    width: 100%;
+    margin-top: 20px;
+    padding: 0px 10px;
+    max-width: 560px;
+  }
+  
+  .title_form_log{
+    width: fit-content;
+    width: -moz-fit-content;
+    font-size: 22px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+  }
+  
+  .title_form_log:after{
+    position: absolute;
+    z-index: 20;
+    content: '';
+    bottom: 0px;
+    left: 0px;
+    width: 0px;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .title_form_log:hover:after{
+    width: 100%;
+  }
+  
+  .content_login_form form{
+    width: 100%;
+  }
+  
+  .content_input_login{
+    width: 100%;
+    margin: 20px 0px;
+  }
+  
+  .content_input_login input{
+    width: 100%;
+    padding: 8px 5px;
+    outline: none;
+    border: 1px solid #bebebe;
+    transition: all 0.2s ease-in-out;
+    background-color: #ededed;
+  }
+  
+  .content_input_login input:focus{
+    border: 1px solid #999999;
+  }
+  
+  .content_btns_login{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-top: 10px;
+  }
+  
+  .content_btns_login a{
+    display: block;
+    width: 200px;
+    transition: all 0.2s ease-in-out;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #2c2c2c;
+    text-align: center;
+  }
+  
+  .content_btns_login a:hover{
+    background-color: #1d1d1d;
+  }
+  
+  .content_btns_login input{
+    display: block;
+    width: 200px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    background-color: #3f51f3;
+    padding: 8px 16px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .content_btns_login input:hover{
+    background-color: #3342c7;
+  }
+  
+  .title_user_loged{
+    width: fit-content;
+    width: -moz-fit-content;
+    font-size: 22px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+    height: 20px;
+    padding: 0px 10px;
+  }
+  
+  .title_user_loged:after{
+    position: absolute;
+    z-index: 20;
+    content: '';
+    bottom: 0px;
+    left: 0px;
+    width: 0px;
+    height: 20px;
+    background-color: #000;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50px;
+  }
+  
+  .title_user_loged:hover{
+    color: #fff;
+  }
+  
+  .title_user_loged:hover:after{
+    width: 100%;
+  }
+  
+  .flex_basic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logout_user{
+    display: flex;
+    background-color: #920909;
+    padding: 6px 12px;
+    margin-top: 20px;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+  }
+  
+  .logout_user:hover{
+    background-color: #c40d0d;
+  }
