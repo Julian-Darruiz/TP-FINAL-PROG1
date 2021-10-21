@@ -1,6 +1,8 @@
 <?php
-require_once 'claseUsuario.php';
+require_once 'clases/Usuario.php';
+
 session_start();
+
 if (isset($_SESSION['usuario'])) {
   $usuario = unserialize($_SESSION['usuario']);
   $nomApe = $usuario->getNombreApellido();
@@ -8,6 +10,7 @@ if (isset($_SESSION['usuario'])) {
   header('Location: index.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +30,7 @@ if (isset($_SESSION['usuario'])) {
       <div class="title_user_loged">
         Hola <?php echo $nomApe; ?>
       </div>
-      <a class="logout_user" href="logout.php">Cerrar sesión</a> <!-- Aca falta crear logout.php!-->
+      <a class="logout_user" href="logout.php">Cerrar sesión</a>
     </div>
   </div>
 </body>

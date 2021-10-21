@@ -18,7 +18,6 @@
         Ingrese sus credenciales para guardar sus peliculas favoritas
       </div>
       <form action="login.php" method="post">
-        <!-- Aca falta crear el archivo login.php !-->
         <div class="content_input_login">
           <input type="text" name="usuario" placeholder="Usuario">
         </div>
@@ -26,7 +25,12 @@
           <input type="password" name="contraseña" placeholder="Contraseña">
         </div>
 
-        <!-- Aca iria un mensaje de error si algo sale mal !-->
+        <?php
+            if (isset($_GET['mensaje'])) {
+                echo '<div id="mensaje" class="alert alert-primary text-center">
+                    <p>'.$_GET['mensaje'].'</p></div>';
+            }
+        ?>
 
         <div class="content_btns_login">
           <a href="create.php" class="btn_login_registrarse">

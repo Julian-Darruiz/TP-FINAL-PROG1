@@ -1,4 +1,3 @@
- <!-- Requiere crear una clase para el control de sesion !-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +16,19 @@
       <div class="title_form_log">
         Crear Usuario
       </div>
-      <!-- Aca iria un mensaje de error si algo sale mal !-->
-      <form>
 
+      <?php
+            if (isset($_GET['mensaje'])) {
+                echo '<div id="mensaje" class="alert alert-primary text-center">
+                    <p>'.$_GET['mensaje'].'</p></div>';
+            }
+        ?>
+
+      <form action="create.php" method="post">
         <div class="content_input_login"><input name="usuario" placeholder="Usuario"></div>
-
         <div class="content_input_login"><input name="clave" type="password" placeholder="Contraseña"></div>
-
         <div class="content_input_login"><input name="nombre" placeholder="Nombre"></div>
-
         <div class="content_input_login"><input name="apellido" placeholder="Apellido"></div>
-
         <div class="content_btns_login"><input type="submit" value="Registrarse"></div>
       </form>
     </div>
