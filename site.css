@@ -132,25 +132,8 @@
     padding: 0px 10px;
   }
   
-  .title_user_loged:after{
-    position: absolute;
-    z-index: 20;
-    content: '';
-    bottom: 0px;
-    left: 0px;
-    width: 0px;
-    height: 20px;
-    background-color: #000;
-    transition: all 0.2s ease-in-out;
-    border-radius: 50px;
-  }
-  
   .title_user_loged:hover{
-    color: #fff;
-  }
-  
-  .title_user_loged:hover:after{
-    width: 100%;
+    color: rgb(247, 8, 8);
   }
   
   .flex_basic{

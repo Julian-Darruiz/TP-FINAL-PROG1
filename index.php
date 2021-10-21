@@ -22,7 +22,7 @@
           <input type="text" name="usuario" placeholder="Usuario">
         </div>
         <div class="content_input_login">
-          <input type="password" name="contraseña" placeholder="Contraseña">
+          <input type="password" name="clave" placeholder="Contraseña">
         </div>
 
         <?php
