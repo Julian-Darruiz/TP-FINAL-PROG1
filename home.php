@@ -28,7 +28,7 @@ if (isset($_SESSION['usuario'])) {
     </div>
     <div class="content_login_form flex_basic">
       <div class="title_user_loged">
-        Hola <?php echo $nomApe; ?>
+        Hola <?php echo $nomApe; ?>, agregue, modifique o elimine su pelicula favorita haciendo click <a href="peliculaUsuario.php" class="link">AQUI</a>
       </div>
       <a class="logout_user" href="logout.php">Cerrar sesión</a>
     </div>

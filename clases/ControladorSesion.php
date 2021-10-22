@@ -10,7 +10,6 @@ class ControladorSesion
     {
         $repo = new RepositorioUsuario();
         $usuario = $repo->login($nombre_usuario, $clave);
-        
         if ($usuario === false) {
             return [false, "Error de credenciales"];
         } else {
