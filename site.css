@@ -127,7 +127,7 @@
   transition: all 0.2s ease-in-out;
   position: relative;
   z-index: 10;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   height: 20px;
   padding: 0px 10px;
 }
@@ -150,7 +150,7 @@
   display: flex;
   background-color: #920909;
   padding: 6px 12px;
-  margin-top: 20px;
+  margin-top: 55px;
   transition: all 0.2s ease-in-out;
   color: #fff;
 }
@@ -158,3 +158,17 @@
 .logout_user:hover{
   background-color: #c40d0d;
 }
+.tabla{
+  width: calc(100% - 40px);
+  margin-top:40px;
+ 
+ }
+ .tabla tr td {
+ padding: 10px;
+ }
+ .tabla tr:nth-child(even){
+  background-color:#F1F1F1;
+ }
+ .tabla tr:nth-child(odd){
+  background-color:#FFFFFF;
+ }

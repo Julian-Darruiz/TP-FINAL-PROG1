@@ -32,35 +32,32 @@ if (isset($_SESSION['usuario'])) {
     </div>
     <div class="content_login_form flex_basic">
       <div class="title_user_loged">
-        Hola <?php echo $nomApe; ?>, agregue, modifique o elimine su pelicula favorita haciendo click <a href="peliculaUsuario.php" class="link">AQUI</a>
+        Bienvenido <?php echo $nomApe; ?>, aqui podra ver, modificar y eliminar sus Peliculas Favoritas <a href="agregarPelicula.php" class="link">ACA</a>
       </div>
-      <h3>Listado de cuentas</h3>
-        <table class="table table-striped">
-            <tr>
-                <th>NumeroPeli</th><th>Pelicula</th><th>Genero</th><th>Agregar</th><th>Eliminar</th>
-            </tr>
-            {
-
-            }
-        <?php
-        if (count($cuentas) == 0) {
-            echo "<tr><td colspan='5'>No tiene cuentas creadas</td></tr>";
-        } else {
-            foreach ($cuentas as $unaCuenta) {
-                $id = $unaCuenta->getId();
-                echo '<tr>';
-                echo "<td>$id</td>";
-                echo "<td>".$unaCuenta->getNombrePelicula()."</td>";
-                echo "<td>".$unaCuenta->getGenero()."</td>";
-                echo "<td><button type='button' onclick='extraer()'>Extraer</button></td>";
-                echo "<td><a href='eliminar.php?n='>Eliminar</a></td>";
-                echo '</tr>';
-            }
-        }
-        ?>
-        </table>
       <a class="logout_user" href="logout.php">Cerrar sesión</a>
     </div>
+    
+      <table class='tabla' border='1' style="border-collapse: collapse" bordercolor="#111111">
+          <tr>
+              <th>NumeroPeli</th><th>Pelicula</th><th>Genero</th><th>Editar</th><th>Eliminar</th>
+          </tr>
+    <?php
+      if (count($cuentas) == 0) {
+          echo "<tr><td colspan='5'>No tiene cuentas creadas</td></tr>";
+      } else {
+          foreach ($cuentas as $unaCuenta) {
+              $id = $unaCuenta->getId();
+              echo '<tr>';
+              echo "<td>$id</td>";
+              echo "<td>".$unaCuenta->getNombrePelicula()."</td>";
+              echo "<td>".$unaCuenta->getGenero()."</td>";
+              echo "<td><button type='button' onclick='Editar()'>Extraer</button></td>";
+              echo "<td>Eliminar</td>";
+              echo '</tr>';
+          }
+      }
+    ?>
+      </table>
   </div>
 </body>
 </html>

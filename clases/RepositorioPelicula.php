@@ -47,16 +47,16 @@ class RepositorioPelicula {
     public function get_all(Usuario $usuario)
     {
         $idUsuario = $usuario->getId();
-        $q = "SELECT nombre_pelicula, genero FROM peliculasfavoritas WHERE id_usuario = ?";
+        $q = "SELECT id, nombre_pelicula, genero FROM peliculasfavoritas WHERE id_usuario = ?";
         try {
             $query = self::$conexion->prepare($q);
             $query->bind_param("i", $idUsuario);
-            $query->bind_result($nombrePelicula, $genero);
+            $query->bind_result($id, $nombrePelicula, $genero);
 
             if ($query->execute()) {
                 $listaCuentas = array();
                 while ($query->fetch()) {
-                    $listaCuentas[] = new PeliculaFavorita($usuario, $nombrePelicula, $genero);
+                    $listaCuentas[] = new PeliculaFavorita($usuario, $nombrePelicula, $genero, $id);
                 }
                 return $listaCuentas;
             }
