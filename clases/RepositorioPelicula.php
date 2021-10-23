@@ -1,8 +1,9 @@
 <?php
 require_once '.env.php';
-require_once 'PeliculaFavorita.php';
+require_once 'clases/PeliculaFavorita.php';
+require_once 'clases/Usuario.php';
 
-class RepositorioPeliculas {
+class RepositorioPelicula {
 
     private static $conexion = null;
 
@@ -42,5 +43,26 @@ class RepositorioPeliculas {
         }
 
 
+    }
+    public function get_all(Usuario $usuario)
+    {
+        $idUsuario = $usuario->getId();
+        $q = "SELECT nombre_pelicula, genero FROM peliculasfavoritas WHERE id_usuario = ?";
+        try {
+            $query = self::$conexion->prepare($q);
+            $query->bind_param("i", $idUsuario);
+            $query->bind_result($nombrePelicula, $genero);
+
+            if ($query->execute()) {
+                $listaCuentas = array();
+                while ($query->fetch()) {
+                    $listaCuentas[] = new PeliculaFavorita($usuario, $nombrePelicula, $genero);
+                }
+                return $listaCuentas;
+            }
+            return false;
+        } catch(Exception $e) {
+            return false;
+        }
     }
 }

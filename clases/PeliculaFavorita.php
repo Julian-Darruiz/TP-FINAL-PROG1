@@ -1,4 +1,6 @@
 <?php
+require_once 'clases/Usuario.php';
+
 class PeliculaFavorita
 {
     public $id;
