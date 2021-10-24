@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario'])) {
   $usuario = unserialize($_SESSION['usuario']);
   $nomApe = $usuario->getNombreApellido();
   $rc = new RepositorioPelicula();
-  $cuentas = $rc->get_all($usuario);
+  $peliculas = $rc->get_all($usuario);
 } else {
   header('Location: index.php');
 }
@@ -42,17 +42,17 @@ if (isset($_SESSION['usuario'])) {
               <th>NumeroPeli</th><th>Pelicula</th><th>Genero</th><th>Editar</th><th>Eliminar</th>
           </tr>
     <?php
-      if (count($cuentas) == 0) {
-          echo "<tr><td colspan='5'>No tiene cuentas creadas</td></tr>";
+      if (count($peliculas) == 0) {
+          echo "<tr><td colspan='5'>No tiene peliculas creadas</td></tr>";
       } else {
-          foreach ($cuentas as $unaCuenta) {
-              $id = $unaCuenta->getId();
+          foreach ($peliculas as $unaPelicula) {
+              $id = $unaPelicula->getId();
               echo '<tr>';
               echo "<td>$id</td>";
-              echo "<td>".$unaCuenta->getNombrePelicula()."</td>";
-              echo "<td>".$unaCuenta->getGenero()."</td>";
-              echo "<td><button type='button' onclick='Editar()'>Extraer</button></td>";
-              echo "<td>Eliminar</td>";
+              echo "<td>".$unaPelicula->getNombrePelicula()."</td>";
+              echo "<td>".$unaPelicula->getGenero()."</td>";
+              echo "<td><button type='button' onclick='editar()'>Editar</button></td>";
+              echo "<td><a href='eliminar.php?id=$id'>Eliminar</a></td>";
               echo '</tr>';
           }
       }

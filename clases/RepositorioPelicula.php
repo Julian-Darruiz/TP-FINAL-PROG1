@@ -54,15 +54,43 @@ class RepositorioPelicula {
             $query->bind_result($id, $nombrePelicula, $genero);
 
             if ($query->execute()) {
-                $listaCuentas = array();
+                $listaPeliculas = array();
                 while ($query->fetch()) {
-                    $listaCuentas[] = new PeliculaFavorita($usuario, $nombrePelicula, $genero, $id);
+                    $listaPeliculas[] = new PeliculaFavorita($usuario, $nombrePelicula, $genero, $id);
                 }
-                return $listaCuentas;
+                return $listaPeliculas;
             }
             return false;
         } catch(Exception $e) {
             return false;
         }
+    } 
+    public function get_one($id)
+    {
+        $q = "SELECT nombre_pelicula, id_usuario FROM peliculasfavoritas WHERE id = ?";
+        try {
+            $query = self::$conexion->prepare($q);
+            $query->bind_param("i", $id);
+            $query->bind_result($nombrePelicula, $idUsuario);
+
+            if ($query->execute()) {
+                if ($query->fetch()) {
+                    $ru = new RepositorioUsuario();
+                    $usuario = $ru->get_one($idUsuario);
+                    return new PeliculaFavorita($usuario, $nombrePelicula, $genero, $id);
+                }
+            }
+            return false;
+        } catch(Exception $e) {
+            return false;
+        }
+    } 
+    public function delete(PeliculaFavorita $pelicula)
+    {
+        $n = $pelicula->getId();
+        $q = "DELETE FROM peliculasfavoritas WHERE id = ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("i", $n);
+        return ($query->execute());
     }
 }
