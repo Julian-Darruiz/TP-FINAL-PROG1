@@ -32,14 +32,13 @@ if (isset($_POST['nombre_pelicula']) && isset($_POST['genero'])) {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>Pelicula</title>
-        <link rel="" href="">
+        <link href="site.css?v0.1" rel="stylesheet" type="text/css" />
     </head>
-    <body class="">
-      <div class="">
-      <h1>Pelicula</h1>
+    <body class="content_login">
+      <div class="content_title_login">
+      Agregar Nueva Pelicula
       </div>    
-      <div class="">
-        <h3>Agregar Nueva Pelicula</h3>
+      <div class="content_title_login">
         <?php
             if (isset($_GET['mensaje'])) {
                 echo '<div id="mensaje" class="">
@@ -48,13 +47,25 @@ if (isset($_POST['nombre_pelicula']) && isset($_POST['genero'])) {
         ?>
 
         <form action="agregarPelicula.php" method="post">
-            <input name="userID" type="hidden" class="" value=<?php echo $id ?>><br>
-            <input name="nombre_pelicula" class="" placeholder="Pelicula" required><br>
-            <input name="genero" class="" placeholder="Genero" required><br>
+
+          <div class="content_input_login">
+            <input name="userID" type="hidden" value=<?php echo $id ?>><br>
+          </div>
+
+          <div class="content_input_login">
+            <input name="nombre_pelicula" placeholder="Pelicula" required><br>
+          </div>
+
+          <div class="content_input_login">
+            <input name="genero" placeholder="Genero" required><br>
+          </div>
+
             <input type="submit" value="Añadir" class="">
+
         </form>   
-        
-        <p><a href="home.php">Volver al Homepage</a></p>
+        <div class="content_login_form flex_basic">
+          <a href="home.php" class="link">Volver al Homepage</a>
+        </div>
       </div> 
     </body>
 </html>

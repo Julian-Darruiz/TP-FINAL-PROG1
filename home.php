@@ -49,15 +49,64 @@ if (isset($_SESSION['usuario'])) {
               $id = $unaPelicula->getId();
               echo '<tr>';
               echo "<td>$id</td>";
-              echo "<td>".$unaPelicula->getNombrePelicula()."</td>";
+              echo "<td id='nombre_pelicula-$id'>".$unaPelicula->getNombrePelicula()."</td>";
               echo "<td>".$unaPelicula->getGenero()."</td>";
-              echo "<td><button type='button' onclick='editar()'>Editar</button></td>";
+              echo "<td><button type='button' onclick='edicionNombrePelicula($id)'>Editar</button></td>";
               echo "<td><a href='eliminar.php?id=$id'>Eliminar</a></td>";
               echo '</tr>';
           }
       }
     ?>
       </table>
+      <div id="editar">
+                <h3>Editar</h3> 
+                <input type="hidden" id="editar">
+                <input type="hidden" id="numeroPeli">
+                <label for="pelicula">Pelicula: </label>
+                <input type="text" id="pelicula"><br>
+                <button type="button" onclick="editar();">Cambiar nombre</button>
+            </div>
+            <hr>
+          </div>
+    <script>
+        function editar()  { // operacion();
+                var editar = document.querySelector('#editar').value;
+                var numeroPeli = 4 // document.querySelector('#numeroPeli').value;
+                var pelicula/* monto*/  = document.querySelector('#pelicula').value;
+                // var cadena = "editar="+editar+"&numeroPeli="+numeroPeli+"&pelicula="+pelicula;
+    
+                var solicitud = new XMLHttpRequest();
+          
+                // solicitud.onreadystatechange = function() {
+                //     if (this.readyState == 4 && this.status == 200) {
+                //         var respuesta = JSON.parse(this.responseText);
+                //         var identificador = "#nombre_pelicula-" + respuesta.id;
+                //         var celda = document.querySelector(identificador);
+    
+                //         if(respuesta.resultado == "OK") {
+                //             celda.innerHTML = respuesta.nombre_pelicula;
+                //           } else {
+                //             alert(respuesta.resultado);
+                //         }
+                //         celda.scrollIntoView();
+                //       }
+                //     };
+                    
+                    solicitud.onload = function () {
+                      console.log(this.responseText)
+                    }
+                    solicitud.open("GET", "editar.php?id="+numeroPeli);
+                    solicitud.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        }
+        function edicionNombrePelicula(nroPelicula)
+            {
+                document.querySelector('#editar').value = "e";
+                document.querySelector('#numeroPeli').value = nroPelicula;
+                document.querySelector('#pelicula').focus();
+            }      
+            
+    
+    </script>
   </div>
 </body>
 </html>

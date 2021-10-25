@@ -16,9 +16,40 @@ class PeliculaFavorita
         $this->userID = $userID;
     }
 
-    public function getId() {return $this->id;}
-    public function setId($id) {$this->id = $id;}
-    public function getUser() {return $this->userID;}
-    public function getNombrePelicula() {return $this->nombrePelicula;}
-    public function getGenero() {return $this->genero;}
+    public function getId() {
+
+        return $this->id;
+    }
+
+    public function setId($id) {
+
+        $this->id = $id;
+
+    }
+
+    public function getUser() {
+
+        return $this->userID;
+    
+    }
+
+    public function getNombrePelicula() {
+        
+        return $this->nombrePelicula;
+    
+    }
+    
+    public function getGenero() {
+        
+        return $this->genero;
+    
+    }
+
+    public function editar($pelicula){
+
+        $this->nombrePelicula = $pelicula;
+
+        return true;
+    }
+
 }

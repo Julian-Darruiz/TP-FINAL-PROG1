@@ -93,4 +93,18 @@ class RepositorioPelicula {
         $query->bind_param("i", $n);
         return ($query->execute());
     }
+
+    public function actualizarDatos(PeliculaFavorita $pelicula)
+    {
+        $i = $pelicula->getId();
+        $n = $pelicula->getNombrePelicula();
+        $g = $pelicula->getGenero();
+
+        $q = "UPDATE peliculasfavoritas SET nombre_pelicula  = ?, genero = ? WHERE id = ?";
+
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("ssi", $n, $g,$i);
+
+        return $query->execute();
+    }
 }
